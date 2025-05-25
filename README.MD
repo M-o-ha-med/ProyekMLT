@@ -1,4 +1,7 @@
-# Laporan Proyek Machine Learning: Klasifikasi Kesehatan Janin dari Data CTG - Mohamed
+# **Laporan Proyek Machine Learning: Klasifikasi Kesehatan Janin dari Data CTG**
+
+**Nama:** Mohamed
+**Tanggal:** Mei 2025
 
 ---
 
@@ -17,9 +20,7 @@ Oleh karena itu, dibutuhkan sistem klasifikasi otomatis berbasis **machine learn
 ### **Referensi**
 
 \[1] World Health Organization. (2020). *Newborns: reducing mortality*. [https://www.who.int/news-room/fact-sheets/detail/newborns-reducing-mortality](https://www.who.int/news-room/fact-sheets/detail/newborns-reducing-mortality)
-
 \[2] Mehbodniya, A. et al. (2022). *Fetal health classification from cardiotocographic data using machine learning*. Expert Systems, 39(6), e12899.
-
 \[3] Salini, Y. et al. (2024). *Cardiotocography data analysis for fetal health classification using machine learning models*. IEEE Access, 12, 26005–26022.
 
 ---
@@ -93,31 +94,36 @@ Jumlah fitur: **21 fitur numerik + 1 target**
 * Korelasi antar fitur untuk menghindari multikolinearitas.
 * Distribusi kelas target menunjukkan ketidakseimbangan kelas.
 
+![Visualisasi Pie Chart](assets/Pie Chart Fetal_Health.png)
+
 ---
 
 ## **4. Data Preparation**
 
-### **Langkah-langkah**
+Data independen dan dependen atau label dipisahkan terlebih dahulu, dimana variabel X memuat data independen sedangkan variabel y memuat data dependen atau label.
+```python
+X = df.drop(['fetal_health'],axis = 1)
+y = df['fetal_health']
+```
 
-1. **Feature & Target Split**:
+Selanjutnya dilakukan splitting data menjadi data latih  dan data tes, dengan perbandingan 80 : 20 , 80 % untuk data latih dan 20 % untuk data tes. dengan menambahkan argumen stratify pada argumen fungsi supaya menjaga distribusi dari kelas.
+```python
+X_train , X_test , y_train , y_test = train_test_split(X,y , test_size = 0.2 , stratify=y , random_state = 42)
+```
 
-   * `X`: 21 fitur numerik
-   * `y`: kolom `fetal_health`
+Setelah dilakukan data splitting, dilakukan proses normalisasi pada data latih guna mempermudah model dalam melakukan prekdisi data.
 
-3. **Train-Test Split**:
+```python
+Scaler = MinMaxScaler()
+X_train = Scaler.fit_transform(X_train)
+X_test = Scaler.transform(X_test)
+```
 
-   * Rasio 80:20
-   * Stratifikasi berdasarkan target (`stratify=y`) untuk menjaga distribusi kelas.
-
-4. **Feature Scaling**:
-
-   * **MinMaxScaler** digunakan agar jarak antar fitur seragam dan cocok untuk algoritma seperti KNN dan SVM.
-
-5. **Class Balancing**:
-
-   * Menggunakan **SMOTE (Synthetic Minority Oversampling Technique)** pada data pelatihan untuk mengatasi class imbalance, terutama pada kelas 2.0 dan 3.0.
-
----
+Terakhir, dilakukan augmentasi data pada data latih menggunakan SMOTE untuk bisa menyeimbangkan data pada masing-masing kelas terutama pada data dengan label 2.0 dan 3.0
+```python
+smote = SMOTE()
+X_train_resampled , y_train_resampled = smote.fit_resample(X_train , y_train)
+```
 
 ## **5. Modeling**
 
