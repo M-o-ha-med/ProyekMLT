@@ -1,86 +1,113 @@
-# Laporan Proyek Machine Learning - Nama Anda
+# Laporan Proyek Machine Learning - Mohamed
 
 ## Domain Proyek
 
-Pada bagian ini, kamu perlu menuliskan latar belakang yang relevan dengan proyek yang diangkat.
+Dalam dunia medis, pemantauan kesehatan janin selama kehamilan merupakan aspek penting untuk mencegah komplikasi yang dapat membahayakan ibu maupun janin. Salah satu metode pemantauan yang umum dilakukan adalah melalui kardiotokografi (CTG), yang merekam denyut jantung janin dan kontraksi rahim. Namun, interpretasi data CTG secara manual oleh tenaga medis bisa sangat subjektif dan bervariasi. Oleh karena itu, penerapan machine learning dalam klasifikasi kesehatan janin dapat membantu meningkatkan akurasi diagnosis dan efisiensi kerja dokter.
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Jelaskan mengapa dan bagaimana masalah tersebut harus diselesaikan
-- Menyertakan hasil riset terkait atau referensi. Referensi yang diberikan harus berasal dari sumber yang kredibel dan author yang jelas.
-- Format Referensi dapat mengacu pada penulisan sitasi [IEEE](https://journals.ieeeauthorcenter.ieee.org/wp-content/uploads/sites/7/IEEE_Reference_Guide.pdf), [APA](https://www.mendeley.com/guides/apa-citation-guide/) atau secara umum seperti [di sini](https://penerbitdeepublish.com/menulis-buku-membuat-sitasi-dengan-mudah/)
-- Sumber yang bisa digunakan [Scholar](https://scholar.google.com/)
+Menurut World Health Organization (WHO), sekitar 2,4 juta bayi meninggal pada bulan pertama kehidupan setiap tahunnya, banyak di antaranya dapat dicegah dengan pemantauan dan penanganan kehamilan yang lebih baik \[1]. Model klasifikasi otomatis berbasis machine learning dapat membantu mengidentifikasi kondisi janin sebagai "normal", "suspect", atau "pathological", sehingga dokter dapat mengambil tindakan yang tepat lebih cepat.
+
+Referensi:
+\[1] World Health Organization. (2020). "Newborns: reducing mortality." [https://www.who.int/news-room/fact-sheets/detail/newborns-reducing-mortality](https://www.who.int/news-room/fact-sheets/detail/newborns-reducing-mortality)
 
 ## Business Understanding
 
-Pada bagian ini, kamu perlu menjelaskan proses klarifikasi masalah.
-
-Bagian laporan ini mencakup:
-
 ### Problem Statements
 
-Menjelaskan pernyataan masalah latar belakang:
-- Pernyataan Masalah 1
-- Pernyataan Masalah 2
-- Pernyataan Masalah n
+* Bagaimana mengklasifikasikan kondisi kesehatan janin berdasarkan data hasil CTG?
+* Apakah model klasifikasi dapat mengidentifikasi kasus janin yang "suspect" atau "pathological" secara akurat dan konsisten?
 
 ### Goals
 
-Menjelaskan tujuan dari pernyataan masalah:
-- Jawaban pernyataan masalah 1
-- Jawaban pernyataan masalah 2
-- Jawaban pernyataan masalah n
+* Mengembangkan model machine learning yang mampu memprediksi label "fetal\_health" dengan akurasi tinggi.
+* Meningkatkan recall dan precision untuk kelas minoritas (suspect dan pathological) agar tidak terjadi false negative yang berbahaya.
 
-Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pernyataan masalah dan juga goals yang diinginkan.
+### Solution Statements
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Menambahkan bagian “Solution Statement” yang menguraikan cara untuk meraih goals. Bagian ini dibuat dengan ketentuan sebagai berikut: 
-
-    ### Solution statements
-    - Mengajukan 2 atau lebih solution statement. Misalnya, menggunakan dua atau lebih algoritma untuk mencapai solusi yang diinginkan atau melakukan improvement pada baseline model dengan hyperparameter tuning.
-    - Solusi yang diberikan harus dapat terukur dengan metrik evaluasi.
+* Membangun model baseline menggunakan algoritma seperti Logistic Regression dan Random Forest.
+* Melakukan data preprocessing termasuk scaling dan balancing menggunakan SMOTE.
+* Melakukan hyperparameter tuning untuk Random Forest dan membandingkan hasilnya dengan XGBoost dan SVM.
 
 ## Data Understanding
-Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
 
-Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
+Dataset yang digunakan adalah [Fetal Health Classification Dataset](https://www.kaggle.com/datasets/andrewmvd/fetal-health-classification) dari Kaggle.
 
-### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+Dataset ini berisi 2126 sampel dengan 21 fitur numerik hasil kardiotokografi dan satu target label bernama "fetal\_health" yang berisi tiga kelas: 1.0 (normal), 2.0 (suspect), dan 3.0 (pathological).
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data atau exploratory data analysis.
+Contoh variabel:
+
+* baseline value: nilai detak jantung dasar janin
+* accelerations: jumlah akselerasi detak jantung
+* fetal\_movement: frekuensi gerakan janin
+* uterine\_contractions: kekuatan kontraksi uterus
+* abnormal\_short\_term\_variability: variasi denyut jantung abnormal jangka pendek
+
+EDA dilakukan untuk memahami distribusi data dan menemukan adanya outlier pada beberapa fitur numerik. Boxplot dan pairplot digunakan untuk eksplorasi visual.
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+Beberapa tahapan yang dilakukan:
+
+1. Menghapus outlier dengan metode IQR (beberapa iterasi diperlukan karena penghapusan outlier mengubah distribusi).
+2. Memisahkan data fitur (X) dan target (y).
+3. Melakukan train-test split dengan stratifikasi label.
+4. Melakukan scaling dengan MinMaxScaler untuk menjaga jarak antar fitur.
+5. Menyeimbangkan data pelatihan menggunakan SMOTE untuk menangani class imbalance.
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y, random_state=42)
+scaler = MinMaxScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+smote = SMOTE()
+X_train, y_train = smote.fit_resample(X_train, y_train)
+```
 
 ## Modeling
-Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
-- Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
-- Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
+Tiga model diuji:
+
+1. Logistic Regression
+2. Random Forest
+3. XGBoost
+
+Random Forest menunjukkan hasil terbaik setelah tuning dengan parameter berikut:
+
+```python
+RandomForestClassifier(n_estimators=300, max_depth=10, random_state=42)
+```
+
+Kelebihan Random Forest:
+
+* Robust terhadap outlier
+* Dapat menangani data imbalanced dengan baik
+
+XGBoost digunakan sebagai pembanding, dan meskipun akurat, memerlukan tuning lebih kompleks.
 
 ## Evaluation
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
 
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
+Metrik evaluasi yang digunakan:
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+* **Accuracy**: proporsi prediksi yang benar
+* **Precision**: kemampuan model menghindari false positive
+* **Recall**: kemampuan model menangkap semua true positive
+* **F1-Score**: harmonic mean dari precision dan recall
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+```text
+Accuracy: 0.944794952681388
+Classification Report:
+              precision    recall  f1-score   support
 
-**---Ini adalah bagian akhir laporan---**
+        1.0       0.97      0.97      0.97       494
+        2.0       0.81      0.78      0.80        88
+        3.0       0.96      0.96      0.96        52
+```
 
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+Hasil menunjukkan bahwa model mampu mengenali semua kelas dengan baik. Terutama recall pada kelas 2.0 dan 3.0 meningkat berkat balancing menggunakan SMOTE.
+
+---
+
+*Catatan tambahan:*
+
+* Outlier dihapus hanya dari fitur numerik, bukan label.
+* Label tidak ikut di-scale karena merupakan target klasifikasi.
+* Visualisasi confusion matrix dan ROC-AUC juga bisa ditambahkan untuk evaluasi lebih mendalam.
