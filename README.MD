@@ -90,8 +90,9 @@ Jumlah fitur: **21 fitur numerik + 1 target**
 
 ### **EDA (Exploratory Data Analysis)**
 
-* Visualisasi distribusi tiap fitur untuk deteksi outlier.
+* Visualisasi distribusi tiap fitur untuk deteksi outlier menggunakan Boxplot.
 #### Hasil Visualisasi
+![Visualiasi Box plot](assets/Boxplot.png)
 
 * Korelasi antar fitur untuk menghindari multikolinearitas menggunakan Heatmap
 #### Hasil Visualisasi
