@@ -18,7 +18,9 @@ Oleh karena itu, dibutuhkan sistem klasifikasi otomatis berbasis **machine learn
 ### **Referensi**
 
 \[1] World Health Organization. (2020). *Newborns: reducing mortality*. [https://www.who.int/news-room/fact-sheets/detail/newborns-reducing-mortality](https://www.who.int/news-room/fact-sheets/detail/newborns-reducing-mortality)
+
 \[2] Mehbodniya, A. et al. (2022). *Fetal health classification from cardiotocographic data using machine learning*. Expert Systems, 39(6), e12899.
+
 \[3] Salini, Y. et al. (2024). *Cardiotocography data analysis for fetal health classification using machine learning models*. IEEE Access, 12, 26005–26022.
 
 ---
@@ -56,7 +58,7 @@ Untuk mencapai tujuan, solusi yang diterapkan meliputi:
    * **F1-Score**
 
 3. **Balancing & Preprocessing**:
-   Mengatasi class imbalance dengan **SMOTE**, serta melakukan **scaling dan outlier removal** agar model lebih robust.
+   Mengatasi class imbalance dengan **SMOTE**, serta melakukan **scaling** agar model lebih robust.
 
 ---
 
@@ -89,11 +91,17 @@ Jumlah fitur: **21 fitur numerik + 1 target**
 ### **EDA (Exploratory Data Analysis)**
 
 * Visualisasi distribusi tiap fitur untuk deteksi outlier.
-* Korelasi antar fitur untuk menghindari multikolinearitas.
-* Distribusi kelas target menunjukkan ketidakseimbangan kelas.
+#### Hasil Visualisasi
 
+* Korelasi antar fitur untuk menghindari multikolinearitas menggunakan Heatmap
+#### Hasil Visualisasi
+
+* Distribusi kelas target menggunakan Pie chart dan Bar chart
+#### 
+![Visualisasi Pie Chart](assets/Pie_chart_Fetal_Health.png)
 ![Visualisasi Pie Chart](assets/Bar_chart_Fetal_Health.png)
 
+Dari dua visualisasi diatas, dapat disimpulkan bahwa persebaran atau distribusi data pada tiap label tidak seimbang sehingga memerlukan augmentasi data saat melatih model nanti.
 ---
 
 ## **4. Data Preparation**
