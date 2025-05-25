@@ -258,7 +258,6 @@ $$F_{m}(x) = F_{m-1}(x) + \gamma_m h_m(x)$$
 - Pelatihan lambat  
 - Sensitif terhadap parameter  
 
-
 ---
 
 ## **6. Evaluation**
@@ -292,16 +291,10 @@ $$F_{m}(x) = F_{m-1}(x) + \gamma_m h_m(x)$$
 
 ### **Model Terbaik**
 
-Model terbaik adalah **Gradient Boosting**, karena memiliki skor evaluasi tertinggi secara konsisten di semua metrik. Model ini dipilih karena:
+Berdasarkan hasil evaluasi terhadap masing-masing model, **Gradient Boosting** merupakan model terbaik dikarenakan memiliki skor evaluasi tertinggi secara konsisten di semua metrik. Model ini dipilih karena:
 
 * Performa prediksi terbaik
 * Kemampuan menangani kompleksitas non-linear
 * Meningkatkan recall pada kelas minoritas berkat SMOTE
 
----
 
-## **Kesimpulan**
-
-Dengan menerapkan serangkaian preprocessing, balancing, dan evaluasi metrik yang tepat, model Gradient Boosting terbukti paling akurat dalam mengklasifikasikan kesehatan janin berdasarkan data CTG. Model ini dapat digunakan sebagai sistem pendukung keputusan untuk meningkatkan diagnosis dini dalam dunia medis, khususnya dalam bidang obstetri.
-
----
