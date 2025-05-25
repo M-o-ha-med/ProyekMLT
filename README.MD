@@ -281,10 +281,10 @@ $$F_{m}(x) = F_{m-1}(x) + \gamma_m h_m(x)$$
    $$F1 = 2 \times \frac{Precision \times Recall}{Precision + Recall}$$
 
 #### Keterangan
-$$TP$$: jumlah prediksi benar untuk nilai positif oleh model
-$$TN$$: jumlah prediksi benar untuk nilai negatif oleh model
-$$FP$$: jumlah prediksi salah untuk nilai positif oleh model
-$$FN$$: jumlah prediksi salah untuk nilai negatif oleh model
+-$$TP$$: jumlah prediksi benar untuk nilai positif oleh model
+-$$TN$$: jumlah prediksi benar untuk nilai negatif oleh model
+-$$FP$$: jumlah prediksi salah untuk nilai positif oleh model
+-$$FN$$: jumlah prediksi salah untuk nilai negatif oleh model
 
 
 ### **Hasil Evaluasi**
