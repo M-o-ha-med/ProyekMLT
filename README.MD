@@ -92,7 +92,7 @@ Jumlah fitur: **21 fitur numerik + 1 target**
 * Korelasi antar fitur untuk menghindari multikolinearitas.
 * Distribusi kelas target menunjukkan ketidakseimbangan kelas.
 
-![Visualisasi Pie Chart](assets/Bar chart Fetal_Health.png)
+![Visualisasi Pie Chart](./assets/Bar chart Fetal_Health.png)
 
 ---
 
