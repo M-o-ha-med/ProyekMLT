@@ -98,7 +98,7 @@ Jumlah fitur: **21 fitur numerik + 1 target**
 
 * Distribusi kelas target menggunakan Pie chart dan Bar chart
 #### 
-![Visualisasi Pie Chart](assets/Pie_chart_Fetal_Health.png)
+![Visualisasi Pie Chart](assets/Pie_Chart_Fetal_Health.png)
 ![Visualisasi Pie Chart](assets/Bar_chart_Fetal_Health.png)
 
 Dari dua visualisasi diatas, dapat disimpulkan bahwa persebaran atau distribusi data pada tiap label tidak seimbang sehingga memerlukan augmentasi data saat melatih model nanti.
