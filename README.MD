@@ -266,15 +266,19 @@ $$F_{m}(x) = F_{m-1}(x) + \gamma_m h_m(x)$$
 ### **Metrik Evaluasi**
 
 1. **Accuracy**
+
    $$Accuracy = \frac{TP + TN}{TP + TN + FP + FN}$$
 
 2. **Precision**
+
    $$Precision = \frac{TP}{TP + FP}$$
 
 3. **Recall**
+
    $$Recall = \frac{TP}{TP + FN}$$
 
 4. **F1-Score**
+
    $$F1 = 2 \times \frac{Precision \times Recall}{Precision + Recall}$$
 
 ### **Hasil Evaluasi**
