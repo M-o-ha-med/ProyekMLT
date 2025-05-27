@@ -65,11 +65,11 @@ Untuk mencapai tujuan, solusi yang diterapkan meliputi:
 ### **Sumber Data**
 
 Dataset: [Fetal Health Classification Dataset – Kaggle](https://www.kaggle.com/datasets/andrewmvd/fetal-health-classification)
-Jumlah data: **2.126 sampel**
+Jumlah data: 
+- 22 kolom
+- 2126 baris
 
 Jumlah fitur: **21 fitur numerik + 1 target**
-
-Jumlah kolom : 22 kolom
 
 ### **Deskripsi Target**
 
@@ -104,10 +104,6 @@ Berikut adalah penjelasan singkat per kolom dalam satu kalimat per poin:
 19. **`histogram_median`**: Nilai tengah dari distribusi detak jantung dalam histogram.
 20. **`histogram_variance`**: Tingkat penyebaran nilai detak jantung dalam histogram.
 21. **`histogram_tendency`**: Arah kecenderungan naik atau turunnya detak jantung berdasarkan histogram.
-
-
-
-
 
 
 ### **EDA (Exploratory Data Analysis)**
