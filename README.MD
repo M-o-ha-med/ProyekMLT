@@ -142,12 +142,12 @@ KNN adalah algoritma klasifikasi (atau regresi) berbasis instance-based learning
 $$d(x, x_i) = \sqrt{\sum_{j=1}^{n} (x_j - x_{ij})^2}$$
 
 **Keterangan:**
-- $$d(x, x_i)$$: Jarak Euclidean antara titik uji $$x$$ dan data latih ke- $$i$$
-- $$x$$: Vektor fitur dari data uji  
-- $$x_i$$: Vektor fitur dari data latih ke- $$i$$  
-- $$x_j$$: Nilai fitur ke- $$j$$ pada data uji  
-- $$x_{ij}$$: Nilai fitur ke- $$j$$ pada data latih ke- $$i$$  
-- $$n$$: Jumlah fitur (dimensi data)
+- $$d(x, x_i)$$ : Jarak Euclidean antara titik uji $$x$$ dan data latih ke- $$i$$
+- $$x$$ : Vektor fitur dari data uji  
+- $$x_i$$ : Vektor fitur dari data latih ke- $$i$$  
+- $$x_j$$ : Nilai fitur ke- $$j$$ pada data uji  
+- $$x_{ij}$$ : Nilai fitur ke- $$j$$ pada data latih ke- $$i$$  
+- $$n$$ : Jumlah fitur (dimensi data)
 
 ### Parameter:
 - `n_neighbors=5`: jumlah tetangga yang dipertimbangkan  
@@ -206,10 +206,10 @@ SVM mencari hyperplane optimal yang memisahkan kelas dengan margin terbesar. Coc
 $$\min_{w,b} \frac{1}{2} \|w\|^2 \quad \text{dengan syarat: } y_i(w \cdot x_i + b) \geq 1$$
 
 **Keterangan:**
-- $$w$$: vektor bobot  
-- $$b$$: bias  
-- $$x_i$$: data ke- $$i$$  
-- $$y_i$$: label data ke- $$i$$  
+- $$w$$ : vektor bobot  
+- $$b$$ : bias  
+- $$x_i$$ : data ke- $$i$$  
+- $$y_i$$ : label data ke- $$i$$  
 - Margin = $$\frac{2}{\|w\|}$$
 
 ### Parameter:
@@ -238,9 +238,9 @@ Gradient Boosting adalah metode ensemble yang membangun model secara bertahap, d
 $$F_{m}(x) = F_{m-1}(x) + \gamma_m h_m(x)$$
 
 **Keterangan:**
-- $$F_{m}(x)$$: model pada iterasi ke- $$m$$ 
-- $$h_m(x)$$: decision tree kecil (weak learner) ke- $$m$$
-- $$\gamma_m$$: learning rate  
+- $$F_{m}(x)$$ : model pada iterasi ke- $$m$$ 
+- $$h_m(x)$$ : decision tree kecil (weak learner) ke- $$m$$
+- $$\gamma_m$$ : learning rate  
 - Model meminimalkan loss: $$\mathcal{L}(y, F(x))$$
 
 ### Parameter:
@@ -281,10 +281,10 @@ $$F_{m}(x) = F_{m-1}(x) + \gamma_m h_m(x)$$
    $$F1 = 2 \times \frac{Precision \times Recall}{Precision + Recall}$$
 
 #### Keterangan
-- $$TP$$: jumlah prediksi benar untuk nilai positif oleh model
-- $$TN$$: jumlah prediksi benar untuk nilai negatif oleh model
-- $$FP$$: jumlah prediksi salah untuk nilai positif oleh model
-- $$FN$$: jumlah prediksi salah untuk nilai negatif oleh model
+- $$TP$$ : jumlah prediksi benar untuk nilai positif oleh model
+- $$TN$$ : jumlah prediksi benar untuk nilai negatif oleh model
+- $$FP$$ : jumlah prediksi salah untuk nilai positif oleh model
+- $$FN$$ : jumlah prediksi salah untuk nilai negatif oleh model
 
 
 ### **Hasil Evaluasi**
