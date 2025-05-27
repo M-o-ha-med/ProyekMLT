@@ -66,7 +66,9 @@ Untuk mencapai tujuan, solusi yang diterapkan meliputi:
 
 Dataset: [Fetal Health Classification Dataset – Kaggle](https://www.kaggle.com/datasets/andrewmvd/fetal-health-classification)
 Jumlah data: **2.126 sampel**
+
 Jumlah fitur: **21 fitur numerik + 1 target**
+
 Jumlah kolom : 22 kolom
 
 ### **Deskripsi Target**
@@ -77,15 +79,34 @@ Jumlah kolom : 22 kolom
   * `2.0` = Suspect
   * `3.0` = Pathological
 
-### **Daftar Fitur**
+### **Daftar Kolom**
 
-* `baseline_value`, `accelerations`, `fetal_movement`, `uterine_contractions`
-* `light_decelerations`, `severe_decelerations`, `prolongued_decelerations`
-* `abnormal_short_term_variability`, `mean_value_of_short_term_variability`
-* `percentage_of_time_with_abnormal_long_term_variability`, `mean_value_of_long_term_variability`
-* `histogram_width`, `histogram_min`, `histogram_max`, `histogram_number_of_peaks`
-* `histogram_number_of_zeroes`, `histogram_mode`, `histogram_mean`, `histogram_median`
-* `histogram_variance`, `histogram_tendency`
+Berikut adalah penjelasan singkat per kolom dalam satu kalimat per poin:
+
+1. **`baseline_value`**: Detak jantung dasar janin yang diukur dalam denyut per menit.
+2. **`accelerations`**: Jumlah kenaikan mendadak detak jantung janin per detik.
+3. **`fetal_movement`**: Jumlah gerakan janin yang terdeteksi per detik.
+4. **`uterine_contractions`**: Intensitas kontraksi rahim yang terukur per detik.
+5. **`light_decelerations`**: Penurunan ringan detak jantung janin dalam periode tertentu.
+6. **`severe_decelerations`**: Penurunan drastis dan signifikan pada detak jantung janin.
+7. **`prolongued_decelerations`**: Penurunan detak jantung janin yang berlangsung cukup lama.
+8. **`abnormal_short_term_variability`**: Persentase waktu saat variabilitas jangka pendek dianggap tidak normal.
+9. **`mean_value_of_short_term_variability`**: Nilai rata-rata perubahan cepat detak jantung janin dari detik ke detik.
+10. **`percentage_of_time_with_abnormal_long_term_variability`**: Persentase waktu saat variabilitas jangka panjang tidak normal.
+11. **`mean_value_of_long_term_variability`**: Nilai rata-rata perubahan detak jantung janin dalam jangka waktu panjang.
+12. **`histogram_width`**: Selisih antara nilai maksimum dan minimum detak jantung dalam histogram.
+13. **`histogram_min`**: Nilai detak jantung terendah yang terekam dalam histogram.
+14. **`histogram_max`**: Nilai detak jantung tertinggi yang terekam dalam histogram.
+15. **`histogram_number_of_peaks`**: Jumlah puncak dalam histogram detak jantung janin.
+16. **`histogram_number_of_zeroes`**: Jumlah nilai nol dalam histogram detak jantung.
+17. **`histogram_mode`**: Nilai detak jantung yang paling sering muncul.
+18. **`histogram_mean`**: Rata-rata keseluruhan nilai detak jantung dalam histogram.
+19. **`histogram_median`**: Nilai tengah dari distribusi detak jantung dalam histogram.
+20. **`histogram_variance`**: Tingkat penyebaran nilai detak jantung dalam histogram.
+21. **`histogram_tendency`**: Arah kecenderungan naik atau turunnya detak jantung berdasarkan histogram.
+
+
+
 
 
 
