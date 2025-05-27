@@ -105,6 +105,10 @@ Berikut adalah penjelasan singkat per kolom dalam satu kalimat per poin:
 20. **`histogram_variance`**: Tingkat penyebaran nilai detak jantung dalam histogram.
 21. **`histogram_tendency`**: Arah kecenderungan naik atau turunnya detak jantung berdasarkan histogram.
 
+### **Kondisi Dataset**
+Terdapat 13 data duplikat dan 0 data null sehingga diperlukan penanganan terhadap data agar tidak mengganggu akurasi dari model.
+
+
 
 ### **EDA (Exploratory Data Analysis)**
 
@@ -121,9 +125,7 @@ Berikut adalah penjelasan singkat per kolom dalam satu kalimat per poin:
 ![Visualisasi Pie Chart](assets/Pie_Chart_Fetal_Health.png)
 ![Visualisasi Bar Chart](assets/Bar_chart_Fetal_Health.png)
 
-### **Kondisi Dataset**
-Setelah dilakukan proses EDA , ditemukan bahwa Terdapat 13 nilai duplikat di dalam dataset serta tidak ada nilai kosong atau null di dalam dataset. hal atau solusi yang diberikan adalah dengan menghapus nilai 
-duplikat tersebut agar tidak menganggu performa dari model yang akan dilatih.
+
 
 ---
 
