@@ -324,6 +324,27 @@ $$F_{m}(x) = F_{m-1}(x) + \gamma_m h_m(x)$$
 | Random Forest     | 0.86     | 0.87      | 0.86     | 0.86     |
 | Gradient Boosting | **0.93** | **0.93**  | **0.93** | **0.93** |
 
+
+#### **Confusion Matrix KNN**
+
+![Confusion Matrix KNN](assets/Heatmap.png)
+
+#### **Confusion Matrix RF**
+
+![Confusion Matrix RF](assets/Heatmap.png)
+
+
+#### **Confusion Matrix SVM**
+
+![Confusion Matrix SVM](assets/Heatmap.png)
+
+
+#### **Confusion Matrix GradientBoosting**
+
+![Confusion Matrix GradientBoosting](assets/Heatmap.png)
+
+
+
 ### **Model Terbaik**
 
 Berdasarkan hasil evaluasi terhadap masing-masing model, **Gradient Boosting** merupakan model terbaik dikarenakan memiliki skor evaluasi tertinggi secara konsisten di semua metrik. Model ini dipilih karena:
@@ -331,5 +352,27 @@ Berdasarkan hasil evaluasi terhadap masing-masing model, **Gradient Boosting** m
 * Performa prediksi terbaik
 * Kemampuan menangani kompleksitas non-linear
 * Meningkatkan recall pada kelas minoritas berkat SMOTE
+
+### Keterkaitan dengan Business understanding
+1. **Apakah sudah menjawab pertanyaan problem statement ?**
+
+* Bagaimana mengklasifikasikan kondisi kesehatan janin berdasarkan data CTG menjadi “normal”, “suspect”, dan “pathological”?
+
+* Apakah model machine learning mampu mengenali janin dalam kondisi “suspect” dan “pathological” dengan akurasi dan konsistensi yang tinggi?
+
+Dua pertanyaan tersebut sudah terjawab dengan adanya model GradientBoosting yang dapat melakukan prediksi dengan akurat terhadap kondisi kesehatan janin menjadi “normal”, “suspect”, dan “pathological” , terlihat dari metrik akurasi , presisi, reacll, dan skor F1 yang berada di angka diatas 90% 
+
+2. ** Apakah sudah berhasil mencapai setiap goals yang ada ? **
+
+* Membangun model machine learning yang mampu memprediksi label `fetal_health` dengan akurasi tinggi.
+
+* Mengidentifikasi model terbaik yang dapat digunakan sebagai alat bantu diagnosis kondisi janin.
+
+Sudah terpenuhi, dibuktikan dengan adanya model GradientBoosting yang dapat melakukan prediksi secara akurat dengan metrik akurasi , presisi, reacll, dan skor F1 yang berada di angka diatas 90% yang merupakan model terbaik dibandingkan dengan model lain seperti SVM , KNN , dan Random Forest.
+
+3. ** Apakah setiap solution statement yang direncanakan berpengaruh ? **
+
+Sangat berpengaruh, pengujian terhadap 4 model dapat memberikan variasi pilihan serta memberikan pandangan mengenai model yang terbaik dalam hal memprediksi data dari status kesehatan janin,penggunaan metrik pengukuran seperti akurasi,  presisi, recall, dan skor f1 penting dalam menentukan model terbaik ,selain itu juga penggunaan SMOTE dalam proses augmentasi data latih dapat membantu meningkatkan akurasi dari keempat model.
+
 
 
