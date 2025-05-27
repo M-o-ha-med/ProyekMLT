@@ -67,6 +67,7 @@ Untuk mencapai tujuan, solusi yang diterapkan meliputi:
 Dataset: [Fetal Health Classification Dataset – Kaggle](https://www.kaggle.com/datasets/andrewmvd/fetal-health-classification)
 Jumlah data: **2.126 sampel**
 Jumlah fitur: **21 fitur numerik + 1 target**
+Jumlah kolom : 22 kolom
 
 ### **Deskripsi Target**
 
@@ -179,9 +180,8 @@ $$\hat{y} = \text{mode}(T_1(x), T_2(x), \ldots, T_k(x))$$
 - $$\hat{y}$$ : hasil prediksi akhir  
 
 ### Parameter:
-- `n_estimators=100`: jumlah pohon  
-- `max_depth=None`: kedalaman maksimum pohon  
-- `bootstrap=True`: sampling dengan pengembalian  
+- `n_estimators=300`: jumlah pohon  
+- `max_depth=2`: kedalaman maksimum pohon 
 - `random_state=42`: agar hasil bisa direproduksi  
 
 ### Kelebihan:
