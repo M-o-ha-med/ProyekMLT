@@ -81,7 +81,7 @@ Jumlah fitur: **21 fitur numerik + 1 target**
 
 ### **Daftar Kolom**
 
-Berikut adalah penjelasan singkat per kolom dalam satu kalimat per poin:
+Berikut adalah penjelasan singkat per kolom dalam satu kalimat per poin: 
 
 1. **`baseline_value`**: Detak jantung dasar janin yang diukur dalam denyut per menit.
 2. **`accelerations`**: Jumlah kenaikan mendadak detak jantung janin per detik.
