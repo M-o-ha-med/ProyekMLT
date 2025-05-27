@@ -87,6 +87,8 @@ Jumlah kolom : 22 kolom
 * `histogram_number_of_zeroes`, `histogram_mode`, `histogram_mean`, `histogram_median`
 * `histogram_variance`, `histogram_tendency`
 
+
+
 ### **EDA (Exploratory Data Analysis)**
 
 * Visualisasi distribusi tiap fitur untuk deteksi outlier menggunakan Boxplot.
@@ -102,10 +104,19 @@ Jumlah kolom : 22 kolom
 ![Visualisasi Pie Chart](assets/Pie_Chart_Fetal_Health.png)
 ![Visualisasi Bar Chart](assets/Bar_chart_Fetal_Health.png)
 
+### **Kondisi Dataset**
+Setelah dilakukan proses EDA , ditemukan bahwa Terdapat 13 nilai duplikat di dalam dataset serta tidak ada nilai kosong atau null di dalam dataset. hal atau solusi yang diberikan adalah dengan menghapus nilai 
+duplikat tersebut agar tidak menganggu performa dari model yang akan dilatih.
 
 ---
 
 ## **4. Data Preparation**
+
+Menghapus data duplikat dari dalam dataset 
+
+```python
+df.drop_duplicates(inplace=True)
+```
 
 Data independen dan dependen atau label dipisahkan terlebih dahulu, dimana variabel X memuat data independen sedangkan variabel y memuat data dependen atau label.
 ```python
@@ -152,8 +163,8 @@ $$d(x, x_i) = \sqrt{\sum_{j=1}^{n} (x_j - x_{ij})^2}$$
 
 ### Parameter:
 - `n_neighbors=5`: jumlah tetangga yang dipertimbangkan  
-- `weights='uniform'`: semua tetangga memiliki bobot yang sama  
-- `metric='minkowski'`, `p=2`: menggunakan jarak Euclidean  
+- `weights='uniform'` : semua tetangga memiliki bobot yang sama  
+- `metric='minkowski'`, `p=2` : menggunakan jarak Euclidean  
 
 ### Kelebihan:
 - Sederhana dan mudah dipahami  
@@ -176,7 +187,7 @@ Random Forest adalah metode ensemble berbasis pohon keputusan. Algoritma ini mem
 $$\hat{y} = \text{mode}(T_1(x), T_2(x), \ldots, T_k(x))$$
 
 **Keterangan:**
-- $$T_i(x)$$: prediksi dari decision tree ke $$i$$  
+- $$T_i(x)$$ : prediksi dari decision tree ke $$i$$  
 - $$\hat{y}$$ : hasil prediksi akhir  
 
 ### Parameter:
