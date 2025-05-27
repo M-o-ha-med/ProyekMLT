@@ -362,7 +362,7 @@ Berdasarkan hasil evaluasi terhadap masing-masing model, **Gradient Boosting** m
 
 Dua pertanyaan tersebut sudah terjawab dengan adanya model GradientBoosting yang dapat melakukan prediksi dengan akurat terhadap kondisi kesehatan janin menjadi “normal”, “suspect”, dan “pathological” , terlihat dari metrik akurasi , presisi, reacll, dan skor F1 yang berada di angka diatas 90% 
 
-2. ** Apakah sudah berhasil mencapai setiap goals yang ada ? **
+2. **Apakah sudah berhasil mencapai setiap goals yang ada ?**
 
 * Membangun model machine learning yang mampu memprediksi label `fetal_health` dengan akurasi tinggi.
 
@@ -370,7 +370,7 @@ Dua pertanyaan tersebut sudah terjawab dengan adanya model GradientBoosting yang
 
 Sudah terpenuhi, dibuktikan dengan adanya model GradientBoosting yang dapat melakukan prediksi secara akurat dengan metrik akurasi , presisi, reacll, dan skor F1 yang berada di angka diatas 90% yang merupakan model terbaik dibandingkan dengan model lain seperti SVM , KNN , dan Random Forest.
 
-3. ** Apakah setiap solution statement yang direncanakan berpengaruh ? **
+3. **Apakah setiap solution statement yang direncanakan berpengaruh ?**
 
 Sangat berpengaruh, pengujian terhadap 4 model dapat memberikan variasi pilihan serta memberikan pandangan mengenai model yang terbaik dalam hal memprediksi data dari status kesehatan janin,penggunaan metrik pengukuran seperti akurasi,  presisi, recall, dan skor f1 penting dalam menentukan model terbaik ,selain itu juga penggunaan SMOTE dalam proses augmentasi data latih dapat membantu meningkatkan akurasi dari keempat model.
 
