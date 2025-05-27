@@ -327,21 +327,21 @@ $$F_{m}(x) = F_{m-1}(x) + \gamma_m h_m(x)$$
 
 #### **Confusion Matrix KNN**
 
-![Confusion Matrix KNN](assets/Heatmap.png)
+![Confusion Matrix KNN](assets/KNN_confusion_matrix.png)
 
 #### **Confusion Matrix RF**
 
-![Confusion Matrix RF](assets/Heatmap.png)
+![Confusion Matrix RF](assets/RF_confusion_matrix.png)
 
 
 #### **Confusion Matrix SVM**
 
-![Confusion Matrix SVM](assets/Heatmap.png)
+![Confusion Matrix SVM](assets/SVM_confusion_matrix.png)
 
 
 #### **Confusion Matrix GradientBoosting**
 
-![Confusion Matrix GradientBoosting](assets/Heatmap.png)
+![Confusion Matrix GradientBoosting](assets/GB_confusion_matrix.png)
 
 
 
