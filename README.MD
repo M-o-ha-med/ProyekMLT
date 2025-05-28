@@ -162,13 +162,13 @@ memory usage: 365.5 KB
 
 ## **4. Data Preparation**
 
-Menghapus data duplikat dari dalam dataset 
+Menghapus data duplikat dari dalam dataset agar dapat membuat proses pelatihan model menjadi lebih mudah dan tidak memberikan data sampah kepada model
 
 ```python
 df.drop_duplicates(inplace=True)
 ```
 
-Data independen dan dependen atau label dipisahkan terlebih dahulu, dimana variabel X memuat data independen sedangkan variabel y memuat data dependen atau label.
+Data independen dan dependen atau label dipisahkan terlebih dahulu, dimana variabel X memuat data independen sedangkan variabel y memuat data dependen atau label, hal ini dilakukan agar dapat menyiapkan data untuk bisa dilakukan proses splitting data.
 ```python
 X = df.drop(['fetal_health'],axis = 1)
 y = df['fetal_health']
@@ -179,7 +179,7 @@ Selanjutnya dilakukan splitting data menjadi data latih  dan data tes, dengan pe
 X_train , X_test , y_train , y_test = train_test_split(X,y , test_size = 0.2 , stratify=y , random_state = 42)
 ```
 
-Setelah dilakukan data splitting, dilakukan proses normalisasi pada data latih guna mempermudah model dalam melakukan prekdisi data.
+Setelah dilakukan data splitting, dilakukan proses normalisasi pada data latih guna mempermudah model dalam melakukan prediksi data.
 
 ```python
 Scaler = MinMaxScaler()
@@ -352,10 +352,10 @@ $$F_{m}(x) = F_{m-1}(x) + \gamma_m h_m(x)$$
 
 | Model             | Accuracy | Precision | Recall   | F1-Score |
 | ----------------- | -------- | --------- | -------- | -------- |
-| SVM               | 0.88     | 0.91      | 0.88     | 0.89     |
-| KNN               | 0.88     | 0.90      | 0.88     | 0.88     |
-| Random Forest     | 0.86     | 0.87      | 0.86     | 0.86     |
-| Gradient Boosting | **0.93** | **0.93**  | **0.93** | **0.93** |
+| KNN               | 0.88     | 0.90      | 0.88     | 0.89     |
+| Random Forest     | 0.85     | 0.87      | 0.85     | 0.86     |
+| SVM               | 0.90     | 0.92      | 0.90     | 0.91     |
+| Gradient Boosting | **0.94** | **0.93**  | **0.94** | **0.93** |
 
 
 #### **Confusion Matrix KNN**
