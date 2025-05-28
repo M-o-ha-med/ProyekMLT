@@ -148,14 +148,52 @@ memory usage: 365.5 KB
 #### Hasil Visualisasi
 ![Visualiasi Box plot](assets/Boxplot.png)
 
-* Korelasi antar fitur untuk menghindari multikolinearitas menggunakan Heatmap
-#### Hasil Visualisasi
-![Visualisasi Heatmap](assets/Heatmap.png)
+Dari boxplot diatas , terlihat adanya outlier yang cukup banyak dalam namun setelah pertimbangan dengan melihat data statistika deskriptif yang masih sesuai secara fisiologis serta melihat jumlah outlier yang banyak yang apabila dihapus dapa mengurangin jumlah data secara signifikan dan hal tersebut dapat berpengaruh terhadap proses pelatihan model. 
+
 
 * Distribusi kelas target menggunakan Pie chart dan Bar chart
 #### Hasil Visualisasi 
 ![Visualisasi Pie Chart](assets/Pie_Chart_Fetal_Health.png)
 ![Visualisasi Bar Chart](assets/Bar_chart_Fetal_Health.png)
+
+Dari kedua visualisasi diatas , dapat disimpulkan bahwa distribusi data tidak seimbang dengan label 1.0 pada kolom fetal_health yang mendominasi di kisaran 1600 kolom atau 77.8% dari keseluruahn data pada kolom fetal_health, sehingga dibutuhkan tindakan augmentasi data untuk menyeimbangkan data menggunakan metode SMOTE.
+
+* Distribusi data setiap kolom menggunakan histogram
+
+![Visualisasi Histogram](assets/distribution_histogram.png)
+
+Dari histogram diatas , terlihat bahwa persebaran nilai dari setiap kolom cenderung *right skewed*, terdapat beberapa kolom yang terdistribusi secara normal dan juga terdapat beberapa kolom yang memiliki persebaran nilai yang cenderung lebih ke *left skewed* sehingga diperlukan normalisasi pada data agar membuat persebaran data menjadi lebih normal .
+
+
+
+* Korelasi antar fitur untuk menghindari multikolinearitas menggunakan Heatmap
+#### Hasil Visualisasi
+![Visualisasi Heatmap](assets/Heatmap.png)
+
+Dari heatmap, didapatkan beberapa insight : 
+
+tingkat korelasi antara kolom fetal_health dengan kolom lain tidak tidak terlalu tinggi menandakan kurangnya korelasi antara kolom fetal_health dengan kolom lainnya, tingkat korelasi terbesar 0.48 merupakan tingkat korelasi terbesar dari kolom fetal_health dengan kolom prolongued_decelerations sedangkan tingkat korelasi terkecil -0.069 merupakan tingkat korelasi terkecil dari kolom fetal_health dengan kolom histogram_width.
+
+### Hasil akhir : 
+Dari proses EDA yang telah dilakukan, didapatkan beberapa insight terkait dengan dataset, yaitu : 
+
+1.   Terdapat 13 data duplikat ditemukan dalam dataset, penghapusan data duplikat perlu dilakukan agar dapat meningkatkan konvergensi dari model yang akan dilatih.
+
+2.   Tidak ditemukan *missing value* di dalam dataset sejauh ini sehingga tidak ada tindakan yang perlu diambil.
+
+3. Terdapat banyak nilai outlier di dalam dataset terbukti dari banyaknya nilai outlier ekstrim di dalam boxplot, namun setelah dipertimbangkan data tersebut tidak jadi dihapuskan karena dapat mengurangi jumlah data secara signifikan dan menurunkan performa model serta data tersebut normal secara fisiologis.
+
+4. sebanyak 77.8% atau sekitar 1600 baris berlabel 1 atau normal, dilanjut dengan label 2 atau suspect sebanyak 13.9 % atau sekitar 300 baris dan terakhir label 3 atau pathological sebanyak 8.3% atau sekitar kurang dari 200 baris yang menunjukkan bahwa distribusi label atau kelas pada dataset tidak seimbang atau *imbalance* , pernyataan ini didasari dari visualisasi menggunakan pie chart dan barchart. penggunaan SMOTE untuk augmentasi data menjadi solusi yang tepat bagi permasalahan tersebut.
+
+5. Dari histogram diatas , terlihat bahwa persebaran nilai dari setiap kolom cenderung *right skewed*, terdapat beberapa kolom yang terdistribusi secara normal dan juga terdapat beberapa kolom yang memiliki persebaran nilai yang cenderung lebih ke *left skewed* sehingga diperlukan normalisasi pada data agar membuat persebaran data menjadi lebih normal .
+
+
+6. Berdasarkan visualisasi heatmap, fitur fetal_healt memiliki tingkat korelasi medioker, dimana tingkat korelasi tertinggi berada pada kisaran 0.48 dan terendah pada kisaran -0.069. fitur dengan tingkat korelasi tertinggi adalah fitur yang berkaitan dengan histogram , dimana histogram_median memiliki tingkat korelasi tertinggi sebesar 0.95 dengan histogram_mean. 
+tingkat korelasi antara kolom fetal_health dengan kolom lain tidak tidak terlalu tinggi menandakan kurangnya korelasi antara kolom fetal_health dengan kolom lainnya, tingkat korelasi terbesar 0.48 merupakan tingkat korelasi terbesar dari kolom fetal_health dengan kolom prolongued_decelerations sedangkan tingkat korelasi terkecil -0.069 merupakan tingkat korelasi terkecil dari kolom fetal_health dengan kolom histogram_width.
+
+
+
+
 
 
 ---
