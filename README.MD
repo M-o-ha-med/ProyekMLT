@@ -231,6 +231,17 @@ smote = SMOTE()
 X_train_resampled , y_train_resampled = smote.fit_resample(X_train , y_train)
 ```
 
+### Hasil akhir : 
+
+1.   Sebanyak 13 data duplikat berhasil dihapus untuk menjaga kondisi dari data agar dapat menjaga kualitas model
+2.   dilakukan pemisahan variabel independen dan variabel dependen ke dalam dua variabel X dan y untuk memudahkan proses splitting data.
+3.   telah dilakukan splitting data dengan ukuran data testing sebesar 20% dan data latih atau training sebesar 80%
+4.   telah dilakukan proses normalisasi pada data latih untuk mempermudah model dalam memprediksi data serta menormalisasi distribusi dari persebaran nilai di dalam kolom
+
+5.   telah dilakukan proses augmentasi data menggunakan SMOTE, didapat bahwa data latih bertambah menjadi 3948 sampel dari yang sebelumnya hanya 1690
+
+
+
 ## **5. Modeling**
 
 ## 1. K-Nearest Neighbors (KNN)
